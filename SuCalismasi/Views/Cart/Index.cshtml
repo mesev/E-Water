@@ -1,0 +1,28 @@
+﻿
+@{
+
+    ViewData["Title"] = "Index";
+    string resim="";
+}
+
+<h1>Index</h1>
+
+@{
+
+    System.Collections.Generic.List<Water.Controllers.CartController.CartProduct>  products = (System.Collections.Generic.List<Water.Controllers.CartController.CartProduct>)ViewData["product"];
+    foreach(Water.Controllers.CartController.CartProduct productList in products)
+     {   resim = "/Images/" + productList.Product.ProductId.ToString() + ".jpg";
+        
+        float price;      
+       
+    <div>
+    <input type="number" value="@productList.Count"/>
+          @productList.Product.Brand.BrandName
+          @productList.Product.Volume Litre
+          @productList.Product.Material.MaterialName
+          @productList.Product.Price ₺   
+       <img src="@resim" style="height:100px"/>
+    </div>
+    }
+ 
+}
